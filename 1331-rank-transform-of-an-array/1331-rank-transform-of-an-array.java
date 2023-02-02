@@ -10,7 +10,7 @@ class Solution {
             
         Arrays.sort(arr);
         int x=0;
-        LinkedHashMap<Integer,Integer> map=new LinkedHashMap<>();
+        HashMap<Integer,Integer> map=new HashMap<>();
         for(int i=0;i<arr.length;i++)
         {
             if(!map.containsKey(arr[i]))
