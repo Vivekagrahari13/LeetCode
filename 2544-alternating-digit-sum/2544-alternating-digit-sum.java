@@ -4,7 +4,7 @@ class Solution {
         String s=String.valueOf(n);
         int sum=0;
         int i=0;
-        while(n>0)
+        while(i<s.length())
         {
            if(i%2==0)
            {
@@ -15,7 +15,7 @@ class Solution {
                 sum-=(Integer.parseInt(s.charAt(i)+""));
             }
             i++;
-            n=n/10;
+            //n=n/10;
         }
         return sum;
     }
