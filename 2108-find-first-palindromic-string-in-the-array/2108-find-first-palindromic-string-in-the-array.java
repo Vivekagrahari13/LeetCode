@@ -12,6 +12,8 @@ class Solution {
     }
     static boolean isPalindrome(String s)
     {
+        if((s.charAt(0))!=(s.charAt(s.length()-1))) 
+            return false;
         String str= "";
         for(int i = s.length()-1 ;i>=0 ;i--){
             str +=s.charAt(i);
