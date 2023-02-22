@@ -6,24 +6,13 @@ class Solution {
         for(int i=0;i<nums.length;i++)
         {
             elem_sum+=nums[i];
-            int n=nums[i];
-            while(n>0)
+            //int n=nums[i];
+            while(nums[i]>0)
             {
-                dig_sum+=n%10;
-                n/=10;
+                dig_sum+=nums[i]%10;
+                nums[i]/=10;
             }
         }
-        
-        
-        /*for(int i=0;i<nums.length;i++)
-        {
-            int n=nums[i];
-            while(n>0)
-            {
-                dig_sum+=n%10;
-                n/=10;
-            }
-        }*/
         return Math.abs(elem_sum-dig_sum);
     }
 }
