@@ -15,25 +15,16 @@ class Solution {
             return head;
         }
         ListNode curr=head;
-		while(curr.next.next!=null)
+		while(curr!=null && curr.next!=null)
 		{
-			if(curr.val!=curr.next.val)
-			{
-				curr=curr.next;
-			}
-			else
+			if(curr.val==curr.next.val)
 			{
 				curr.next=curr.next.next;
 			}
-		}
-		if(curr.val==curr.next.val)
-		{
-			curr.next=null;
-		}
-		else
-		{
-			curr=curr.next;
-			curr.next=null;
+			else
+			{
+				curr=curr.next;
+			}
 		}
 		return head;
     }
