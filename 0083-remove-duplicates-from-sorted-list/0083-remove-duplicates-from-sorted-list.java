@@ -15,27 +15,23 @@ class Solution {
             return head;
         }
         ListNode curr=head;
-		ListNode temp=head.next;
-		while(temp.next!=null)
+		while(curr.next.next!=null)
 		{
-			if(curr.val!=temp.val)
+			if(curr.val!=curr.next.val)
 			{
-				curr.next=temp;
 				curr=curr.next;
-				temp=temp.next;
 			}
 			else
 			{
-				temp=temp.next;
+				curr.next=curr.next.next;
 			}
 		}
-		if(curr.val==temp.val)
+		if(curr.val==curr.next.val)
 		{
 			curr.next=null;
 		}
 		else
 		{
-			curr.next=temp;
 			curr=curr.next;
 			curr.next=null;
 		}
