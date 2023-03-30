@@ -11,19 +11,54 @@
  */
 public class Solution {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        HashSet<ListNode> set=new HashSet<>();
-        ListNode curr1=headA,curr2=headB;
-        while(curr1!=null)
+        int c1=getCount(headA);
+        int c2=getCount(headB);
+        //System.out.println(c2);
+        int d;
+        if(c1>c2){
+            d=c1-c2;
+            return getIntersectNode(d,headA,headB);
+        }
+        else 
         {
-            set.add(curr1);
+             d=c2-c1;
+            //System.out.println(d);
+            return getIntersectNode(d,headB,headA);
+        }
+        // else
+        // {
+        //     d=0;
+        //     return getIntersectNode(d,headA,headB);
+        // }
+    }
+    public int getCount(ListNode head)
+    {
+        ListNode curr=head;
+        int count=0;
+        while(curr!=null){
+            count++;
+            curr=curr.next;
+        }
+        return count;
+    }
+    public ListNode getIntersectNode(int d,ListNode node1, ListNode node2)
+    {
+        int i;
+        ListNode curr1=node1;
+        ListNode curr2=node2;
+        for(i=0;i<d;i++)
+        {
+            if(curr1==null) {
+                return null;}
             curr1=curr1.next;
         }
-        while(curr2!=null)
+        while(curr1!=null && curr2!=null)
         {
-            if(set.contains(curr2))
+            if(curr1==curr2)
             {
-                return curr2;
+                return curr1;
             }
+            curr1=curr1.next;
             curr2=curr2.next;
         }
         return null;
