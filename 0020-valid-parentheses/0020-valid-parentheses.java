@@ -29,7 +29,7 @@ class Solution {
 		}
 		return (stack.isEmpty()==true);
     }
-    static boolean matchBrace(char a, char b)
+	static boolean matchBrace(char a, char b)
 	{
 		return (a=='(' && b==')')|| (a=='{'&& b=='}') ||( a=='[' && b==']');
 	}
