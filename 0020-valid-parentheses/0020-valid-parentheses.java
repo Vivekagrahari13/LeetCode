@@ -16,7 +16,7 @@ class Solution {
 				{
 					return false;
 				}
-				else if(matchBrace(stack.peek(),x)==false)
+				 else if(matchBrace(stack.peek(),x)==false)
 				{
 					return false;
 				}
