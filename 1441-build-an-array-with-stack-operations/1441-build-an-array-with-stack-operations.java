@@ -18,7 +18,7 @@ class Solution {
                 {
                     break;
                 }
-                else if(size==len || target[size-1]!=stack.peek())
+               if(size==len || target[size-1]!=stack.peek())
                 {
                     stack.pop();
                     list.add("Pop");
