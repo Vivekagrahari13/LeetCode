@@ -14,8 +14,8 @@ class Solution {
             i++;
               }
         if(stack.size()==s.length()) return s;
-        if(stack.isEmpty()) 
-           return "";
+        // if(stack.isEmpty()) 
+        //    return "";
         String s1="";
         i=0;
         while(i<stack.size())
