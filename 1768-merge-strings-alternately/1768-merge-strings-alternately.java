@@ -4,8 +4,7 @@ class Solution {
         int i=0, j=0;
         while(i<word1.length() && j<word2.length())
         {
-            // char a=(i<word1.length())?word1.charAt(i):' ';
-            // char b=(j<word2.length())?word2.charAt(j):' ';
+
             s=s+word1.charAt(i)+word2.charAt(j);
             i++;j++;
         }
