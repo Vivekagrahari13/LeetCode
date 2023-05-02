@@ -4,11 +4,12 @@ class Solution {
         int i=0;
         while(i<tokens.length)
         {
+             //char x=tokens[i].charAt(0);
             char x=tokens[i].charAt(tokens[i].length()-1);
             if(isOperand(x))
             {
                 int num=Integer.parseInt(tokens[i]);
-                stack.push(Integer.parseInt(num+""));
+                stack.push(num);
             }
             else 
             {
@@ -16,7 +17,7 @@ class Solution {
                 int op2=stack.pop();
                 
                  if(x=='*')
-                {
+                 {
                     stack.push(op2*op1);
                 }
                 else if(x=='/')
