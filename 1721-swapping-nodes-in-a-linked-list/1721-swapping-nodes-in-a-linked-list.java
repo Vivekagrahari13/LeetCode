@@ -10,32 +10,30 @@
  */
 class Solution {
     public ListNode swapNodes(ListNode head, int k) {
-        //for first pointer 
-        ListNode p1=head,p2=head,curr=head;
+        
         int size=0;
+        ListNode curr=head;
         while(curr!=null)
         {
             size++;
             curr=curr.next;
         }
-        // Moving pointer p1 to starting kth node
-        int start=1;
-        while(start<k)
+        curr=head;
+        int i=0;
+        while(i<size-k)
         {
-            p1=p1.next;
-            start++;
+            curr=curr.next;
+            i++;
         }
-        //Now moving pointer p2 to the kth node from end of list
-        start=0;
-        while(start<size-k)
+        ListNode f=head;
+        while(k>1)
         {
-           start++;
-           p2=p2.next;
+            f=f.next;
+            k--;
         }
-        //Now swapping kth form beginninh and ending
-        int temp=p1.val;
-        p1.val=p2.val;
-        p2.val=temp;
+        int temp=f.val;
+        f.val=curr.val;
+        curr.val=temp;
         
         return head;
     }
