@@ -2,7 +2,7 @@ class Solution {
     public int[] maxSlidingWindow(int[] nums, int k) {
         int n=nums.length;
         int ans[]=new int[n-k+1];
-        Deque<Integer> dq=new LinkedList<>();
+        Deque<Integer> dq=new ArrayDeque<>();
         for(int i=0;i<k;i++)
         {
             while(!dq.isEmpty() && nums[i]>=nums[dq.getLast()])
