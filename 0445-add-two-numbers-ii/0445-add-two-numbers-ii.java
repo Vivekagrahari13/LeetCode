@@ -10,50 +10,38 @@
  */
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        l1=reverseList(l1);
-        l2=reverseList(l2);
-        
-        ListNode sum_head=new ListNode(0);
-        ListNode flag=sum_head;
-        
+        l1=rev(l1);
+        l2=rev(l2);
+        ListNode node=new ListNode(0);
+        ListNode temp=node;
         int carry=0;
         while(l1!=null || l2!=null || carry!=0)
         {
-            int a=(l1!=null)?l1.val:0;
-            int b=(l2!=null)?l2.val:0;
-            
-            int curr_sum=a+b+carry;
-            
-            ListNode node=new ListNode(curr_sum%10);
-            flag.next=node;
-            flag=flag.next;
-            
-             carry=curr_sum/10;
-            
-            l1=(l1!=null)?l1.next:null;
-            l2=(l2!=null)?l2.next:null;
+            int a=(l1==null)?0:l1.val;
+            int b=(l2==null)?0:l2.val;
+            int sum=(a+b+carry)%10;
+            carry=(a+b+carry)/10;
+            ListNode flag=new ListNode(sum);
+            temp.next=flag;
+            temp=temp.next;
+            l1=(l1==null)?null:l1.next;
+            l2=(l2==null)?null:l2.next;
         }
-        sum_head=deleteHead(sum_head);
-        sum_head=reverseList(sum_head);
-        return sum_head;
+        node=rev(node.next);
+        return node;
+        
     }
-    public ListNode reverseList(ListNode head)
+    public ListNode rev(ListNode node)
     {
-        if(head==null || head.next==null) return head;
-        ListNode prev=null, next=null;
-        ListNode curr=head;
-        while(curr!=null)
+        ListNode temp=node;
+        ListNode next=null, prev=null;
+        while(temp!=null)
         {
-            next=curr.next;
-            curr.next=prev;
-            prev=curr;
-            curr=next;
+          next=temp.next;
+          temp.next=prev;
+           prev=temp;
+            temp=next;
         }
         return prev;
-    }
-    public ListNode deleteHead(ListNode head)
-    {
-        if(head==null) return null;
-        return head.next;
     }
 }
