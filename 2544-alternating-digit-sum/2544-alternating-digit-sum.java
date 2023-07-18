@@ -1,21 +1,18 @@
 class Solution {
-    public int alternateDigitSum(int n) 
-    {
-        String s=String.valueOf(n);
-        int sum=0;
-        int i=0;
-        while(i<s.length())
+    public int alternateDigitSum(int n) {
+        String num=""+n;
+        int sum=0,i=0;
+        while(i<num.length())
         {
-           if(i%2==0)
-           {
-               sum+=(Integer.parseInt(s.charAt(i)+""));  
-           }
+            if(i%2==0)
+            {
+                sum+=Integer.parseInt(""+num.charAt(i));
+            }
             else
             {
-                sum-=(Integer.parseInt(s.charAt(i)+""));
+                sum-=Integer.parseInt(""+num.charAt(i));
             }
             i++;
-            //n=n/10;
         }
         return sum;
     }
