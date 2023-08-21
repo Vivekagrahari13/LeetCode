@@ -1,28 +1,27 @@
 class Solution {
     public int search(int[] nums, int target) {
-       int low=0,high=nums.length-1;
-        while(low<=high)
+        int n=nums.length;
+        int l=0,h=n-1;
+        while(l<=h)
         {
-            int mid=low+(high-low)/2;
+            int mid=(l+h)/2;
             if(nums[mid]==target)
                 return mid;
-            //Since Rotated array so sorted array divide in two parts left and right sorted
-            // For Left Sorted Array
-            if(nums[mid]>=nums[low])
+            else if(nums[l]<=nums[mid])
             {
-                if(target<nums[mid] && target>=nums[low])
-                    high=mid-1;
+                if(nums[l]<=target && target<nums[mid])
+                    h=mid-1;
                 else
-                    low=mid+1;     
+                    l=mid+1;
             }
-            // For Right Sorted Array
-            if(nums[mid]<=nums[high])
+            else
             {
-                if(target>nums[mid]&& target<=nums[high])
-                    low=mid+1;
+                if(nums[mid]<target && target<=nums[h])
+                    l=mid+1;
                 else
-                    high=mid-1;
+                    h=mid-1;
             }
+            
         }
         return -1;
     }
